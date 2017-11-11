@@ -1,17 +1,22 @@
 class Room
 
-  attr_reader :room_name, :guests, :songs
+  attr_reader :room_name, :guests, :songs, :capacity
 
-  def initialize(room_name)
+  def initialize(room_name, capacity)
     @room_name = room_name
     @guests = []
     @songs = []
+    @capacity = capacity
   end
 
 
 
   def check_in_guest(room, guest)
-    room.guests << guest
+    if room.guests.count < room.capacity
+      room.guests << guest
+    else
+      return "Sorry, the room has reached its capacity of #{room.capacity}."
+    end
   end
 
   def check_out_guest(room, guest_checking_out)

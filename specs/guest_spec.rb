@@ -6,12 +6,13 @@ class TestGuest < MiniTest::Test
 
   def setup
     @guest1 = Guest.new("Catriona")
-    @guest2 = Guest.new("Pete")
   end
 
 
   def test_guest_has_name
-    assert_equal("Pete", @guest2.name)
+    assert_equal("Catriona", @guest1.name)
   end
+
+  def test
 
 end

@@ -19,11 +19,13 @@ class Room
     # push that guest into a new array
     # delete guest from room
     to_delete = []
-
-    guest_to_remove = (room.guests).find {|guest| guest == guest_checking_out}
+    guest_to_remove = room.guests.find {|guest| guest == guest_checking_out}
+    if guest_to_remove == nil
+      return "Sorry, that customer is not checked in"
+    else
     to_delete << guest_to_remove
     room.guests.delete(guest_to_remove)
-
+    end
   end
 
   def add_songs(room, song)

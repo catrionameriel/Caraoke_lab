@@ -52,6 +52,10 @@ class TestRoom < MiniTest::Test
     assert_equal("Sorry, the room has reached its capacity of 2.", @room1.check_in_guest(@room1, @guest3))
   end
 
+  def room_has_entry_fee
+    assert_equal(10, @room1.entry_fee)
+  end
+
 
 
 end

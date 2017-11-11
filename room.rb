@@ -1,12 +1,15 @@
 class Room
 
-  attr_reader :room_name, :guests, :songs, :capacity
+  # ENTRY_FEE = 10 <- Why didn't this work?
+
+  attr_reader :room_name, :guests, :songs, :capacity, :entry_fee
 
   def initialize(room_name, capacity)
     @room_name = room_name
     @guests = []
     @songs = []
     @capacity = capacity
+    @entry_fee = 10
   end
 
 
@@ -36,6 +39,7 @@ class Room
   def add_songs(room, song)
     room.songs << song
   end
+
 
 
 

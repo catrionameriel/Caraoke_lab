@@ -25,4 +25,8 @@ class TestGuest < MiniTest::Test
     assert_equal(10, @guest2.wallet)
   end
 
+  def test_guest_pay_for_room__insufficient_funds
+    assert_equal("Sorry, you can't come in. Come back when you have more money", @guest1.pay_for_room(@guest1, @room1))
+  end
+
 end

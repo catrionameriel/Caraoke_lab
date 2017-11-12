@@ -21,11 +21,10 @@ class Room
   def check_in_guest(room, guest)
     return "Sorry, the room has reached its capacity of #{room.capacity}." if !(enough_room?(room))
     return "Sorry, you can't come in. Come back when you have more money" if !(guest.guest_has_entry_fee?(guest, room))
+
     room.guests << guest
     guest.pay_for_room(guest, room)
   end
-
-
 
 
   def check_out_guest(room, guest_checking_out)

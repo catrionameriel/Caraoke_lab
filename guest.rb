@@ -10,16 +10,16 @@ class Guest
   end
 
 
-  def guest_has_entry_fee?(guest, room)
-    guest.wallet >= room.entry_fee
+  def guest_has_entry_fee?(room)
+    @wallet >= room.entry_fee
   end
 
-  def pay_for_room(guest, room)
-      guest.wallet -= room.entry_fee
+  def pay_for_room(room)
+      @wallet -= room.entry_fee
   end
 
-  def hears_favourite_song(room, guest)
-    has_favourite_song = (room.songs).find {|song| song.title == guest.favourite_song}
+  def hears_favourite_song(room)
+    has_favourite_song = (room.songs).find {|song| song.title == @favourite_song}
     return "Yasssssss, this is my jam!" if has_favourite_song
   end
 

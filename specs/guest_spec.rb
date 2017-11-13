@@ -23,25 +23,25 @@ class TestGuest < MiniTest::Test
   end
 
   def test_guest_has_entry_fee__yes
-    assert_equal(true, @guest2.guest_has_entry_fee?(@guest2, @room1))
+    assert_equal(true, @guest2.guest_has_entry_fee?(@room1))
   end
 
   def test_guest_has_entry_fee__no
-    assert_equal(false, @guest1.guest_has_entry_fee?(@guest1, @room1))
+    assert_equal(false, @guest1.guest_has_entry_fee?(@room1))
   end
 
   def test_guest_pay_for_room__sufficient_funds
-    @guest2.pay_for_room(@guest2, @room1)
+    @guest2.pay_for_room(@room1)
     assert_equal(10, @guest2.wallet)
   end
 
   def test_guest_hears_favourite_song
-    assert_equal("Shake it off", @guest1.favourite_song)
+    assert_equal("Shake it off", favourite_song)
   end
 
   def test_guest_hears_favourite_song
     @room1.add_songs(@room1, @song1)
-    assert_equal("Yasssssss, this is my jam!", @guest1.hears_favourite_song(@room1, @guest1))
+    assert_equal("Yasssssss, this is my jam!", @guest1.hears_favourite_song(@room1))
   end
 
 end

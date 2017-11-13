@@ -13,35 +13,35 @@ class Room
   end
 
 
-  def enough_room?(room)
-    room.guests.count < room.capacity
+  def enough_room?()
+    @guests.count < @capacity
   end
 
 
   def check_in_guest(room, guest)
-    return "Sorry, the room has reached its capacity of #{room.capacity}." if !(enough_room?(room))
-    return "Sorry, you can't come in. Come back when you have more money" if !(guest.guest_has_entry_fee?(guest, room))
+    return "Sorry, the room has reached its capacity of #{@capacity}." if !(enough_room?)
+    return "Sorry, you can't come in. Come back when you have more money" if !(guest.guest_has_entry_fee?(room))
 
-    room.guests << guest
-    guest.pay_for_room(guest, room)
+    @guests << guest
+    guest.pay_for_room(room)
   end
 
 
-  def check_out_guest(room, guest_checking_out)
+  def check_out_guest(guest_checking_out)
     # find guest
     # push that guest into a new array
     # delete guest from room
     to_delete = []
-    guest_to_remove = room.guests.find {|guest| guest == guest_checking_out}
+    guest_to_remove = @guests.find {|guest| guest == guest_checking_out}
     return "Sorry, that customer is not checked in" if guest_to_remove == nil
 
     to_delete << guest_to_remove
-    room.guests.delete(guest_to_remove)
+    @guests.delete(guest_to_remove)
   end
 
 
-  def add_songs(room, song)
-    room.songs << song
+  def add_songs(song)
+    @songs << song
   end
 
 
